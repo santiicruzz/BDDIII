@@ -5,6 +5,6 @@ const MotoSchema = new mongoose_1.Schema({
     placa: { type: String, required: true },
     marca: { type: String, required: true },
     color: { type: String, required: true },
-    modelo: { type: Date, required: true }
+    modelo: { type: String, required: true }
 });
 exports.default = (0, mongoose_1.model)("Motos", MotoSchema);

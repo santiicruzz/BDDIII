@@ -10,9 +10,11 @@ class PostRouter{
     }
 
     public async createMoto(req: Request, res: Response):Promise<void>{
-        const {moto} = req.body;
-        const newPost = new Motos({moto});
-        await newPost.save();
+        console.log(req.body);
+        const moto = req.body;
+        console.log(moto);
+        const newMoto = new Motos(moto);
+        await newMoto.save();
         res.json({status: res.status});
     }
     public async getMotos(req: Request, res: Response):Promise<void>{

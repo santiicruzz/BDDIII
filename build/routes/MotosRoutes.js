@@ -21,9 +21,11 @@ class PostRouter {
     }
     createMoto(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { moto } = req.body;
-            const newPost = new motos_1.default({ moto });
-            yield newPost.save();
+            console.log(req.body);
+            const moto = req.body;
+            console.log(moto);
+            const newMoto = new motos_1.default(moto);
+            yield newMoto.save();
             res.json({ status: res.status });
         });
     }
