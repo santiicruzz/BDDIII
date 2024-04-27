@@ -32,7 +32,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const helmet_1 = __importDefault(require("helmet"));
 const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
-const postRoutes_1 = __importDefault(require("./routes/postRoutes"));
+const MotosRoutes_1 = __importDefault(require("./routes/MotosRoutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)(); // La variable de constructor siempre tiene el mismo nombre
@@ -61,7 +61,7 @@ class Server {
                 "suma": varUno + varDos
             });
         });
-        this.app.use('/api/post', postRoutes_1.default);
+        this.app.use('/api/motos', MotosRoutes_1.default);
     }
     Start() {
         this.app.listen(this.app.get('port'), () => {
