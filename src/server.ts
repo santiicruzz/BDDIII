@@ -3,7 +3,10 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import compression from 'compression';
 import cors from 'cors';
+
 import MotosRoutes from './routes/MotosRoutes';
+import PropietariosRoutes from './routes/PropietariosRoutes'
+import authRoutes from './routes/authRoutes';
 
 class Server{
     public app: express.Application;
@@ -19,7 +22,7 @@ class Server{
         this.app.use(morgan("dev"));
         this.app.use(helmet());
         this.app.use(compression());
-        this.app.use(json());
+        this.app.use(express.json());
         this.app.use(cors());
     }
     routes(){
@@ -36,6 +39,8 @@ class Server{
             })
         });
         this.app.use('/api/motos', MotosRoutes);
+        this.app.use('/api/propietarios', PropietariosRoutes);
+        this.app.use('/api/auth', authRoutes);
         
     }
     public Start(){
