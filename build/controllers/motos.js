@@ -80,14 +80,11 @@ class MotosController {
             const allMotos = yield motos_1.default.aggregate([
                 {
                     $lookup: {
-                        from: "propietariomodel",
-                        localfield: "propietarios",
+                        from: "Propietarios",
+                        localField: "propietario",
                         foreignField: "_id",
                         as: "propietarioMoto"
                     }
-                },
-                {
-                    $unwind: "$propietarioMoto"
                 }
             ]);
             console.log(allMotos);
